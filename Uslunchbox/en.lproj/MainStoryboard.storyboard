@@ -72,7 +72,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" id="ciT-01-GIe">
                                         <rect key="frame" x="0.0" y="0.0" width="172" height="80"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.64999999999999969"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="USLUNCHBOX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Aaa-RL-FJn">
@@ -103,6 +103,7 @@
                     </view>
                     <connections>
                         <outlet property="emailLabel" destination="IwB-nl-KH8" id="tDa-XK-rhf"/>
+                        <outlet property="loginView" destination="3" id="b37-3b-och"/>
                         <outlet property="passwdLabel" destination="lb0-yb-Vni" id="0Zo-gA-fcT"/>
                     </connections>
                 </viewController>
@@ -121,6 +122,7 @@
             <relationships>
                 <relationship kind="action" name="loginClicked:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="emailLabel" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="loginView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="passwdLabel" candidateClass="UITextField"/>
             </relationships>
         </class>

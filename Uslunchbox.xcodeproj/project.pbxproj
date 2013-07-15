@@ -26,6 +26,7 @@
 		0D07B0A317863FF300F575AF /* login_textfield_bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D07B08B17863FF300F575AF /* login_textfield_bottom@2x.png */; };
 		0D07B0B9178642FD00F575AF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07B0B8178642FD00F575AF /* LoginViewController.m */; };
 		0D07B0BE1793534E00F575AF /* SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07B0BD1793534E00F575AF /* SHA1.m */; };
+		0D07B0C01793728B00F575AF /* readme in Resources */ = {isa = PBXBuildFile; fileRef = 0D07B0BF1793728A00F575AF /* readme */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		0D07B0B8178642FD00F575AF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0D07B0BC1793534E00F575AF /* SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHA1.h; path = Uslunchbox/SHA1.h; sourceTree = "<group>"; };
 		0D07B0BD1793534E00F575AF /* SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHA1.m; path = Uslunchbox/SHA1.m; sourceTree = "<group>"; };
+		0D07B0BF1793728A00F575AF /* readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				0D07B0651786382200F575AF /* Default.png */,
 				0D07B0671786382200F575AF /* Default@2x.png */,
 				0D07B0691786382200F575AF /* Default-568h@2x.png */,
+				0D07B0BF1793728A00F575AF /* readme */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				0D07B09917863FF300F575AF /* login_bg@2x.jpg in Resources */,
 				0D07B0A217863FF300F575AF /* login_textfield_bottom.png in Resources */,
 				0D07B0A317863FF300F575AF /* login_textfield_bottom@2x.png in Resources */,
+				0D07B0C01793728B00F575AF /* readme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

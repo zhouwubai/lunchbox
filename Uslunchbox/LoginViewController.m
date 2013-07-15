@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailLabel;
 @property (weak, nonatomic) IBOutlet UITextField *passwdLabel;
 @property  (nonatomic,strong) SHA1 *crypto;
+@property (weak, nonatomic) IBOutlet UIView *loginView;
+
 
 
 @end
@@ -29,6 +31,7 @@
 @synthesize email = _email;
 @synthesize password = _password;
 @synthesize crypto = _crypto;
+@synthesize loginView = _loginView;
 
 -(SHA1 *)crypto{
     if(!_crypto)
@@ -75,11 +78,21 @@
             NSLog(@"Response code: %d", [response statusCode]);
             if([response statusCode] >= 200 && [response statusCode] < 300)
             {
-            
-            }else{
+                //NSString *responseData = [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding];
+                NSDictionary* json = [NSJSONSerialization JSONObjectWithData:urlData options:kNilOptions error:&error];
                 
+                BOOL success = [self checkLoginResponseJson:json];
+                if(!success)
+                    return;
+                
+                //enter segue to another page
+                
+                
+                
+            }else{
+                if(error) NSLog(@"Error: %@",error);
+                [self alertStatus:@"Connection Failed" :@"Login Failed"];
             }
-            
         }
     }
     @catch (NSException *exception) {
@@ -137,24 +150,36 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+-(BOOL)shouldAutorotate
 {
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
+    return NO;
 }
 
 
-#pragma mark - User Defined methods
+#pragma mark - User Defined util methods
 
 -(void)hideKeyboard{
     [self.view endEditing:YES];
 }
 
+
+-(BOOL)checkLoginResponseJson:(NSDictionary *)json
+{
+    NSString *result = [json objectForKey:@"result"];
+    if([result isEqualToString:@"inactivated"]){
+        [self alertStatus:@"please go to your email to activate this account." :@"inactivated account!"];
+        return FALSE;
+    }else if([result isEqualToString:@"false"]){
+        [self alertStatus:@"wrong email or password, please try again." :@"Login Failed!"];
+        return FALSE;
+    }else if([result isEqualToString:@"true"]){
+        return TRUE;
+    }else{
+        [self alertStatus:@"Please try again." :@"Unknow Error!"];
+        return FALSE;
+    }
+    
+}
 
 
 @end
