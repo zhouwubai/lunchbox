@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GuideViewController : UIViewController
+@interface GuideViewController : UIViewController <UIScrollViewDelegate>
+
+
+@property (weak, nonatomic) IBOutlet UIScrollView *pageScroll;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (nonatomic,weak) UIView *leftView;
+@property (nonatomic,weak) UIView *rightView;
+
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+
+
+- (IBAction)goToMainView:(UIButton *)sender;
 
 @end
