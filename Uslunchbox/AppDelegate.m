@@ -8,11 +8,39 @@
 
 #import "AppDelegate.h"
 
+#import "GuideViewController.h"
+#import "LoginViewController.h"
+
 @implementation AppDelegate
+
+
+@synthesize window = _window;
+@synthesize guideViewController = _guideViewController;
+
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //设置系统参数，用于判断是否第一次启动应用
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"hasEverLaunched"]){
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasEverLaunched"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+    }
+    
+    
+    //display GuideViewController
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]){
+        GuideViewController *appGuideViewController = [[GuideViewController alloc] init];
+        self.window.rootViewController = appGuideViewController;
+    }else{
+        LoginViewController *loginViewController = [[LoginViewController alloc] init];
+        self.window.rootViewController = loginViewController;
+    }
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							
