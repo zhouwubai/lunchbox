@@ -13,8 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *pageScroll;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-@property (nonatomic,weak) UIView *leftView;
-@property (nonatomic,weak) UIView *rightView;
+
 
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 

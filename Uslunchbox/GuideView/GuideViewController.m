@@ -15,10 +15,8 @@
 @implementation GuideViewController
 
 @synthesize startButton = _startButton;
-@synthesize leftView = _leftView;
-@synthesize rightView = _rightView;
-@synthesize pageControl; // Do not need set and get function, come from nib file
-@synthesize pageScroll;
+@synthesize pageControl = _pageControl; // Do not need set and get function, come from nib file
+@synthesize pageScroll = _pageScroll;
 
 
 #pragma mark - View lifecycle
@@ -38,12 +36,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     NSInteger numberOfPages = 2;
-    pageControl.numberOfPages = numberOfPages;
-    pageControl.currentPage = 0;
+    self.pageControl.numberOfPages = numberOfPages;
+    self.pageControl.currentPage = 0;
     
-    pageScroll.delegate = self;
-    pageScroll.contentSize = CGSizeMake(self.view.frame.size.width * numberOfPages,
+    self.pageScroll.delegate = self;
+    self.pageScroll.contentSize = CGSizeMake(self.view.frame.size.width * numberOfPages,
                                         self.view.frame.size.height);
+    self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,6 +61,16 @@
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     return (toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+
+
+#pragma mark - scrollView Delegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat pageWidth = self.view.frame.size.width;
+    int page = floor((scrollView.contentOffset.x - pageWidth/2) / pageWidth) + 1;
+    self.pageControl.currentPage = page;
 }
 
 
