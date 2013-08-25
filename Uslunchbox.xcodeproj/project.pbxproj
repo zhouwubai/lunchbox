@@ -12,7 +12,7 @@
 		0D07B0581786382200F575AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D07B0571786382200F575AF /* CoreGraphics.framework */; };
 		0D07B05E1786382200F575AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D07B05C1786382200F575AF /* InfoPlist.strings */; };
 		0D07B0601786382200F575AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07B05F1786382200F575AF /* main.m */; };
-		0D07B0641786382200F575AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07B0631786382200F575AF /* AppDelegate.m */; };
+		0D07B0641786382200F575AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07B0631786382200F575AF /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
 		0D07B0661786382200F575AF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D07B0651786382200F575AF /* Default.png */; };
 		0D07B0681786382200F575AF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D07B0671786382200F575AF /* Default@2x.png */; };
 		0D07B06A1786382200F575AF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D07B0691786382200F575AF /* Default-568h@2x.png */; };
@@ -27,6 +27,8 @@
 		0D07B0B9178642FD00F575AF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07B0B8178642FD00F575AF /* LoginViewController.m */; };
 		0D07B0BE1793534E00F575AF /* SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07B0BD1793534E00F575AF /* SHA1.m */; };
 		0D07B0C01793728B00F575AF /* readme in Resources */ = {isa = PBXBuildFile; fileRef = 0D07B0BF1793728A00F575AF /* readme */; };
+		CA5AE17B17C9A48300C6038F /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5AE17917C9A48300C6038F /* GuideViewController.m */; };
+		CA5AE17C17C9A48300C6038F /* GuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA5AE17A17C9A48300C6038F /* GuideViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,9 @@
 		0D07B0BC1793534E00F575AF /* SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHA1.h; path = Uslunchbox/SHA1.h; sourceTree = "<group>"; };
 		0D07B0BD1793534E00F575AF /* SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHA1.m; path = Uslunchbox/SHA1.m; sourceTree = "<group>"; };
 		0D07B0BF1793728A00F575AF /* readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
+		CA5AE17817C9A48300C6038F /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuideViewController.h; path = Uslunchbox/GuideView/GuideViewController.h; sourceTree = "<group>"; };
+		CA5AE17917C9A48300C6038F /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuideViewController.m; path = Uslunchbox/GuideView/GuideViewController.m; sourceTree = "<group>"; };
+		CA5AE17A17C9A48300C6038F /* GuideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GuideViewController.xib; path = Uslunchbox/GuideView/GuideViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,7 @@
 		0D07B0471786382200F575AF = {
 			isa = PBXGroup;
 			children = (
+				CA5AE17717C9A37F00C6038F /* GuideView */,
 				0D07B0BB1793531400F575AF /* SHA1 */,
 				0D07B07C17863F1E00F575AF /* loginIMG */,
 				0D07B0591786382200F575AF /* Uslunchbox */,
@@ -152,6 +158,16 @@
 			name = SHA1;
 			sourceTree = "<group>";
 		};
+		CA5AE17717C9A37F00C6038F /* GuideView */ = {
+			isa = PBXGroup;
+			children = (
+				CA5AE17817C9A48300C6038F /* GuideViewController.h */,
+				CA5AE17917C9A48300C6038F /* GuideViewController.m */,
+				CA5AE17A17C9A48300C6038F /* GuideViewController.xib */,
+			);
+			name = GuideView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -216,6 +232,7 @@
 				0D07B0A217863FF300F575AF /* login_textfield_bottom.png in Resources */,
 				0D07B0A317863FF300F575AF /* login_textfield_bottom@2x.png in Resources */,
 				0D07B0C01793728B00F575AF /* readme in Resources */,
+				CA5AE17C17C9A48300C6038F /* GuideViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +247,7 @@
 				0D07B0641786382200F575AF /* AppDelegate.m in Sources */,
 				0D07B0B9178642FD00F575AF /* LoginViewController.m in Sources */,
 				0D07B0BE1793534E00F575AF /* SHA1.m in Sources */,
+				CA5AE17B17C9A48300C6038F /* GuideViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
