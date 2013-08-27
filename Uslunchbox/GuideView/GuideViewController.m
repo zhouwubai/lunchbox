@@ -9,7 +9,8 @@
 #import "GuideViewController.h"
 
 @interface GuideViewController ()
-
+@property BOOL pageControlBeingUsed;
+-(IBAction)changePage;
 @end
 
 @implementation GuideViewController
@@ -17,7 +18,7 @@
 @synthesize startButton = _startButton;
 @synthesize pageControl = _pageControl; // Do not need set and get function, come from nib file
 @synthesize pageScroll = _pageScroll;
-
+@synthesize pageControlBeingUsed = _pageControlBeingUsed;
 
 #pragma mark - View lifecycle
 
@@ -68,9 +69,11 @@
 #pragma mark - scrollView Delegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat pageWidth = self.view.frame.size.width;
-    int page = floor((scrollView.contentOffset.x - pageWidth/2) / pageWidth) + 1;
-    self.pageControl.currentPage = page;
+    if(!self.pageControlBeingUsed){
+        CGFloat pageWidth = self.view.frame.size.width;
+        int page = floor((scrollView.contentOffset.x - pageWidth/2) / pageWidth) + 1;
+        self.pageControl.currentPage = page;
+    }
 }
 
 
@@ -80,5 +83,15 @@
 - (IBAction)goToMainView:(UIButton *)sender {
 }
 
+
+-(IBAction)changePage{
+    CGRect frame;
+    frame.origin.x = self.pageScroll.frame.size.width * self.pageControl.currentPage;
+    frame.origin.y = 0;
+    frame.size = self.pageScroll.frame.size;
+    [self.pageScroll scrollRectToVisible:frame animated:YES];
+    
+    self.pageControlBeingUsed = YES;
+}
 
 @end
