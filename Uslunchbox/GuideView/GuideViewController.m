@@ -7,6 +7,7 @@
 //
 
 #import "GuideViewController.h"
+#import "LoginViewController.h"
 
 @interface GuideViewController ()
 @property BOOL pageControlBeingUsed;
@@ -80,8 +81,6 @@
 #pragma mark - User Defined
 
 
-- (IBAction)goToMainView:(UIButton *)sender {
-}
 
 
 -(IBAction)changePage{
@@ -94,4 +93,53 @@
     self.pageControlBeingUsed = YES;
 }
 
+- (IBAction)goToMainView:(UIButton *)sender {
+    
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
+    [self.startButton setHidden:YES];
+    [self.pageScroll setHidden:YES];
+    [self.pageControl setHidden:YES];
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    NSLog(@"what is happending");
+    LoginViewController *loginViewController = [sb instantiateViewControllerWithIdentifier:@"mainVIew"];
+    loginViewController.modalPresentationStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:loginViewController animated:YES completion:NULL];
+    
+}
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

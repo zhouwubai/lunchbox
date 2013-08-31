@@ -36,7 +36,10 @@
         GuideViewController *appGuideViewController = [[GuideViewController alloc] init];
         self.window.rootViewController = appGuideViewController;
     }else{
-        LoginViewController *loginViewController = [[LoginViewController alloc] init];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        NSLog(@"what is happening");
+        LoginViewController *loginViewController = [sb instantiateViewControllerWithIdentifier:@"mainVIew"];
+        loginViewController.modalPresentationStyle = UIModalTransitionStyleCoverVertical;
         self.window.rootViewController = loginViewController;
     }
     

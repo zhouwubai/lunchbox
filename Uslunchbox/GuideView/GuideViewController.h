@@ -17,7 +17,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
-
 - (IBAction)goToMainView:(UIButton *)sender;
 
 @end
