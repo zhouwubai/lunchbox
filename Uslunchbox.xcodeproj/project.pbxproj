@@ -32,6 +32,10 @@
 		CA8CD23D17D2B8A4000C6E79 /* menuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8CD23C17D2B8A4000C6E79 /* menuTableViewController.m */; };
 		CA8CD24017D2B8C9000C6E79 /* orderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8CD23F17D2B8C9000C6E79 /* orderTableViewController.m */; };
 		CA8CD24317D2B8F4000C6E79 /* profileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8CD24217D2B8F4000C6E79 /* profileViewController.m */; };
+		CA8CD24717D2EF52000C6E79 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8CD24617D2EF52000C6E79 /* profile.png */; };
+		CA8CD24917D2EF7E000C6E79 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8CD24817D2EF7E000C6E79 /* menu.png */; };
+		CA8CD24B17D2EFE5000C6E79 /* order.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8CD24A17D2EFE5000C6E79 /* order.png */; };
+		CA9AEC9C17D39C2000059E2D /* WeekDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9AEC9B17D39C2000059E2D /* WeekDate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +74,11 @@
 		CA8CD23F17D2B8C9000C6E79 /* orderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = orderTableViewController.m; path = Uslunchbox/tabbarVC/orderTableViewController.m; sourceTree = "<group>"; };
 		CA8CD24117D2B8F4000C6E79 /* profileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = profileViewController.h; path = Uslunchbox/tabbarVC/profileViewController.h; sourceTree = "<group>"; };
 		CA8CD24217D2B8F4000C6E79 /* profileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = profileViewController.m; path = Uslunchbox/tabbarVC/profileViewController.m; sourceTree = "<group>"; };
+		CA8CD24617D2EF52000C6E79 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
+		CA8CD24817D2EF7E000C6E79 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		CA8CD24A17D2EFE5000C6E79 /* order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = order.png; sourceTree = "<group>"; };
+		CA9AEC9A17D39C2000059E2D /* WeekDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekDate.h; path = Uslunchbox/tabbarVC/WeekDate.h; sourceTree = "<group>"; };
+		CA9AEC9B17D39C2000059E2D /* WeekDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekDate.m; path = Uslunchbox/tabbarVC/WeekDate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +98,7 @@
 		0D07B0471786382200F575AF = {
 			isa = PBXGroup;
 			children = (
+				CA8CD24517D2EC28000C6E79 /* img */,
 				CA8CD23A17D2B833000C6E79 /* tabbarVC */,
 				CA5AE17717C9A37F00C6038F /* GuideView */,
 				0D07B0BB1793531400F575AF /* SHA1 */,
@@ -187,8 +197,20 @@
 				CA8CD23F17D2B8C9000C6E79 /* orderTableViewController.m */,
 				CA8CD24117D2B8F4000C6E79 /* profileViewController.h */,
 				CA8CD24217D2B8F4000C6E79 /* profileViewController.m */,
+				CA9AEC9A17D39C2000059E2D /* WeekDate.h */,
+				CA9AEC9B17D39C2000059E2D /* WeekDate.m */,
 			);
 			name = tabbarVC;
+			sourceTree = "<group>";
+		};
+		CA8CD24517D2EC28000C6E79 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				CA8CD24A17D2EFE5000C6E79 /* order.png */,
+				CA8CD24817D2EF7E000C6E79 /* menu.png */,
+				CA8CD24617D2EF52000C6E79 /* profile.png */,
+			);
+			name = img;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +278,9 @@
 				0D07B0A317863FF300F575AF /* login_textfield_bottom@2x.png in Resources */,
 				0D07B0C01793728B00F575AF /* readme in Resources */,
 				CA5AE17C17C9A48300C6038F /* GuideViewController.xib in Resources */,
+				CA8CD24717D2EF52000C6E79 /* profile.png in Resources */,
+				CA8CD24917D2EF7E000C6E79 /* menu.png in Resources */,
+				CA8CD24B17D2EFE5000C6E79 /* order.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +299,7 @@
 				CA8CD23D17D2B8A4000C6E79 /* menuTableViewController.m in Sources */,
 				CA8CD24017D2B8C9000C6E79 /* orderTableViewController.m in Sources */,
 				CA8CD24317D2B8F4000C6E79 /* profileViewController.m in Sources */,
+				CA9AEC9C17D39C2000059E2D /* WeekDate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

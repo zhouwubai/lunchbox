@@ -7,12 +7,28 @@
 //
 
 #import "menuTableViewController.h"
+#import "WeekDate.h"
 
 @interface menuTableViewController ()
 
 @end
 
 @implementation menuTableViewController
+
+@synthesize weekDates = _weekDates;
+
+
+-(NSArray *)weekDates
+{
+    if(_weekDates){
+        _weekDates = [NSMutableArray array];
+        _weekDates = [self calculateWeekDates]; // compute once
+        NSLog(@"someting happens");
+    }
+    NSLog(@"nothing happens");
+    return _weekDates;
+}
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -44,24 +60,32 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [[self weekDates] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"menu cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    if(cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE,yyyy-MM-dd"];
+    NSDate *date =[[self weekDates] objectAtIndex:(unsigned int)indexPath];
+    NSArray *dateInfos = [[dateFormatter stringFromDate:date] componentsSeparatedByString:@","];
+    
+    cell.textLabel.text = [dateInfos objectAtIndex: 0];
+    cell.detailTextLabel.text = [dateInfos objectAtIndex: 1];
+    
+    NSLog(@"table");
     
     return cell;
 }
@@ -117,5 +141,84 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+
+
+
+#pragma mark - User Defined
+
+-(NSMutableArray*) calculateWeekDates
+{
+    NSDate *today = [NSDate date];
+    NSLog(@"Today date is %@",today);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    
+    //begining day of week which includes today
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    //consistent with system preference.
+    int dayOfweek = [[[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:today] weekday];
+    //first day(sunday of a week)
+    NSDateComponents *componentsToSubstract = [[NSDateComponents alloc] init];
+    [componentsToSubstract setDay:0 - (dayOfweek - 1)];
+    
+    // add monday to friday
+    NSMutableArray *daysOfWholeWeek = [NSMutableArray array];
+    for(int i = 0; i < 5; i++){
+        
+        [componentsToSubstract setDay:1];
+        [daysOfWholeWeek addObject:[gregorian dateByAddingComponents:componentsToSubstract toDate:today options:0]];
+    }
+
+    return daysOfWholeWeek;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

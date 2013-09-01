@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface menuTableViewController : UITableViewController
-
+@property (nonatomic,strong) NSMutableArray *weekDates;
 @end
