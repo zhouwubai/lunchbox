@@ -38,9 +38,9 @@
     }else{
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         NSLog(@"what is happening");
-        LoginViewController *loginViewController = [sb instantiateViewControllerWithIdentifier:@"mainVIew"];
-        loginViewController.modalPresentationStyle = UIModalTransitionStyleCoverVertical;
-        self.window.rootViewController = loginViewController;
+        UIViewController *chooseSiteVC = [sb instantiateViewControllerWithIdentifier:@"mainVavCV"];
+        chooseSiteVC.modalPresentationStyle = UIModalTransitionStyleCoverVertical;
+        self.window.rootViewController = chooseSiteVC;
     }
     
     [self.window makeKeyAndVisible];

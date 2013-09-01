@@ -102,9 +102,9 @@
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     NSLog(@"what is happending");
-    LoginViewController *loginViewController = [sb instantiateViewControllerWithIdentifier:@"mainVIew"];
-    loginViewController.modalPresentationStyle = UIModalTransitionStyleCoverVertical;
-    [self presentViewController:loginViewController animated:YES completion:NULL];
+    UIViewController *chooseSiteVC = [sb instantiateViewControllerWithIdentifier:@"mainVavCV"];
+    chooseSiteVC.modalPresentationStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:chooseSiteVC animated:YES completion:NULL];
     
 }
 @end
