@@ -12,4 +12,6 @@
 @property (nonatomic) int dishID;
 @property (nonatomic) double dishPrice;
 @property (nonatomic,retain) NSString *dishName;
+
++ (NSDictionary *)executeDishFetch:(NSString *)query withSiteID:(int)siteID withCategory:(int)cID inDay:(NSString *)dateStr;
 @end

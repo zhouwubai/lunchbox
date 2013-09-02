@@ -9,7 +9,28 @@
 #import "Dish.h"
 
 @implementation Dish
-@dynamic dishID;
-@dynamic dishPrice;
-@dynamic dishName;
+//@dynamic dishID;
+//@dynamic dishPrice;
+//@dynamic dishName;
+
+@synthesize dishID = _dishID;
+@synthesize dishName = _dishName;
+@synthesize dishPrice = _dishPrice;
+
+
++ (NSDictionary *)executeDishFetch:(NSString *)query withSiteID:(int)siteID withCategory:(int)cID inDay:(NSString *)dateStr
+{
+    query = [NSString stringWithFormat:@"%@?siteid=%d&date=%@&categoryid=%d",query,siteID,dateStr,cID];
+    query = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    // NSLog(@"[%@ %@] sent %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), query);
+    NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:query] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    NSDictionary *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
+    if (error) NSLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
+    // NSLog(@"[%@ %@] received %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), results);
+    NSLog(@"%@",results);
+    return results;
+}
+
+
 @end

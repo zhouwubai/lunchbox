@@ -21,6 +21,14 @@
 @synthesize dishes = _dishes;
 
 
+-(NSMutableArray *)dishes
+{
+    if(_dishes == nil){
+        _dishes = [self fetchDishes];
+    }
+    
+    return _dishes;
+}
 
 
 
@@ -55,22 +63,27 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    return [[self dishes] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"menu cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    if(cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
+    Dish *tmpDish = [[self dishes] objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tmpDish dishName];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"price: %f",[tmpDish dishPrice]];
     return cell;
 }
 
@@ -133,7 +146,31 @@
     NSString *url = @"http://uslunchbox.com/uslunchbox/OnlineOrderScheduleServlet";
     NSString *dateStr = @"2013-08-29";
 //    [self postRequestDishMenuTo:url withSiteID:1 withCategory:0 inDay:dateStr];
-    [self executeDishFetch:url withSiteID:1 withCategory:0 inDay:dateStr];
+    [Dish executeDishFetch:url withSiteID:1 withCategory:0 inDay:dateStr];
+}
+
+
+
+-(NSMutableArray *) fetchDishes
+{
+    NSString *url = @"http://uslunchbox.com/uslunchbox/OnlineOrderScheduleServlet";
+    NSString *dateStr = @"2013-08-29";
+    
+    NSArray *dishes = [[Dish executeDishFetch:url withSiteID:1 withCategory:0 inDay:dateStr] objectForKey:@"dishes"];
+    NSMutableArray *rtnDishes = [NSMutableArray array];
+    for(NSDictionary *dish in dishes){
+        Dish *tmpDish = [[Dish alloc] init];
+        NSLog(@"%@",tmpDish);
+        int dishID = [[dish objectForKey:@"id"] integerValue];
+        [tmpDish setDishID:dishID];
+        double price = [[dish objectForKey:@"price"] doubleValue];
+        [tmpDish setDishPrice:price];
+        NSString *dishName = [dish objectForKey:@"name"];
+        [tmpDish setDishName:dishName];
+        [rtnDishes addObject:tmpDish];
+    }
+    
+    return rtnDishes;
 }
 
 
@@ -179,23 +216,6 @@
     
 }
 
-
-
-
-
-- (NSDictionary *)executeDishFetch:(NSString *)query withSiteID:(int)siteID withCategory:(int)cID inDay:(NSString *)dateStr
-{
-    query = [NSString stringWithFormat:@"%@?siteid=%d&date=%@&categoryid=%d",query,siteID,dateStr,cID];
-    query = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    // NSLog(@"[%@ %@] sent %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), query);
-    NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:query] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error = nil;
-    NSDictionary *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
-    if (error) NSLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
-    // NSLog(@"[%@ %@] received %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), results);
-    NSLog(@"%@",results);
-    return results;
-}
 
 
 
