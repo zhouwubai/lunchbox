@@ -20,12 +20,12 @@
 
 -(NSArray *)weekDates
 {
-    if(_weekDates){
+    if(_weekDates == nil){
         _weekDates = [NSMutableArray array];
         _weekDates = [self calculateWeekDates]; // compute once
-        NSLog(@"someting happens");
+//        NSLog(@"someting happens");
     }
-    NSLog(@"nothing happens");
+//    NSLog(@"nothing happens");
     return _weekDates;
 }
 
@@ -79,13 +79,15 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEEE,yyyy-MM-dd"];
-    NSDate *date =[[self weekDates] objectAtIndex:(unsigned int)indexPath];
+    NSDate *date =[[self weekDates] objectAtIndex:indexPath.row];
+//    NSLog(@"%d",indexPath.section);
+//    NSLog(@"%d",indexPath.row);
     NSArray *dateInfos = [[dateFormatter stringFromDate:date] componentsSeparatedByString:@","];
     
     cell.textLabel.text = [dateInfos objectAtIndex: 0];
     cell.detailTextLabel.text = [dateInfos objectAtIndex: 1];
     
-    NSLog(@"table");
+//    NSLog(@"table");
     
     return cell;
 }
@@ -162,13 +164,15 @@
     //first day(sunday of a week)
     NSDateComponents *componentsToSubstract = [[NSDateComponents alloc] init];
     [componentsToSubstract setDay:0 - (dayOfweek - 1)];
+    NSDate *nextDay = [gregorian dateByAddingComponents:componentsToSubstract toDate:today options:0];
     
     // add monday to friday
     NSMutableArray *daysOfWholeWeek = [NSMutableArray array];
+    [componentsToSubstract setDay:1];
+    
     for(int i = 0; i < 5; i++){
-        
-        [componentsToSubstract setDay:1];
-        [daysOfWholeWeek addObject:[gregorian dateByAddingComponents:componentsToSubstract toDate:today options:0]];
+        nextDay = [gregorian dateByAddingComponents:componentsToSubstract toDate:nextDay options:0];
+        [daysOfWholeWeek addObject:nextDay];
     }
 
     return daysOfWholeWeek;

@@ -151,12 +151,15 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Zn3-6i-6Ei" id="H2V-2t-ZQ9"/>
+                            <outlet property="dataSource" destination="Zn3-6i-6Ei" id="sL6-px-gk4"/>
                             <outlet property="delegate" destination="Zn3-6i-6Ei" id="oTm-r8-F3U"/>
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="menu" image="menu.png" id="gMt-c7-Ub2"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="view" destination="J3m-G7-rpd" id="flQ-fF-kGi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyF-Pu-LWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -340,26 +343,6 @@
         <image name="order.png" width="22" height="26"/>
         <image name="profile.png" width="24" height="21"/>
     </resources>
-    <classes>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="loginClicked:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="emailLabel" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="loginView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwdLabel" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="menuTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/menuTableViewController.h"/>
-        </class>
-        <class className="orderTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/orderTableViewController.h"/>
-        </class>
-        <class className="profileViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/profileViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
