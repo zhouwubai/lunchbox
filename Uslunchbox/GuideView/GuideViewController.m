@@ -93,6 +93,8 @@
     self.pageControlBeingUsed = YES;
 }
 
+
+
 - (IBAction)goToMainView:(UIButton *)sender {
     
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];

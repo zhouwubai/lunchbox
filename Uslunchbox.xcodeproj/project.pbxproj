@@ -37,6 +37,7 @@
 		CA9AEC9C17D39C2000059E2D /* WeekDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9AEC9B17D39C2000059E2D /* WeekDate.m */; };
 		CAA0AEEB17D4308000209AC6 /* ChooseDayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA0AEEA17D4308000209AC6 /* ChooseDayTableViewController.m */; };
 		CAA0AEEE17D431AA00209AC6 /* menuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA0AEED17D431AA00209AC6 /* menuTableViewController.m */; };
+		CAA0AEF117D4435500209AC6 /* Dish.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA0AEF017D4435500209AC6 /* Dish.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,8 @@
 		CAA0AEEA17D4308000209AC6 /* ChooseDayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseDayTableViewController.m; path = Uslunchbox/tabbarVC/ChooseDayTableViewController.m; sourceTree = "<group>"; };
 		CAA0AEEC17D431AA00209AC6 /* menuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = menuTableViewController.h; path = Uslunchbox/tabbarVC/menuTableViewController.h; sourceTree = "<group>"; };
 		CAA0AEED17D431AA00209AC6 /* menuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = menuTableViewController.m; path = Uslunchbox/tabbarVC/menuTableViewController.m; sourceTree = "<group>"; };
+		CAA0AEEF17D4435500209AC6 /* Dish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dish.h; sourceTree = "<group>"; };
+		CAA0AEF017D4435500209AC6 /* Dish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dish.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,8 @@
 				0D07B0631786382200F575AF /* AppDelegate.m */,
 				0D07B06B1786382300F575AF /* MainStoryboard.storyboard */,
 				0D07B05A1786382200F575AF /* Supporting Files */,
+				CAA0AEEF17D4435500209AC6 /* Dish.h */,
+				CAA0AEF017D4435500209AC6 /* Dish.m */,
 			);
 			path = Uslunchbox;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				CA9AEC9C17D39C2000059E2D /* WeekDate.m in Sources */,
 				CAA0AEEB17D4308000209AC6 /* ChooseDayTableViewController.m in Sources */,
 				CAA0AEEE17D431AA00209AC6 /* menuTableViewController.m in Sources */,
+				CAA0AEF117D4435500209AC6 /* Dish.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

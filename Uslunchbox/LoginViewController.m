@@ -88,7 +88,6 @@
                 //enter segue to another page
                 
                 
-                
             }else{
                 if(error) NSLog(@"Error: %@",error);
                 [self alertStatus:@"Connection Failed" :@"Login Failed"];

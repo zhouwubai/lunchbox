@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface menuTableViewController : UITableViewController
-
+@property (nonatomic,strong) NSDate *date;
+@property (nonatomic,strong) NSString *dateStr;
+@property (nonatomic,strong) NSMutableArray *dishes;
 @end
