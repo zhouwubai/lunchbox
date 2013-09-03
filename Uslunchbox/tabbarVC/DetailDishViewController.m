@@ -39,7 +39,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.title = [self.dish dishName];
     [self setupDishImage];
+    [self setupDishInfoLabel];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,5 +73,40 @@
         [self.dishImageView setImage:image];
     }
 }
+
+
+
+
+-(void)setupDishInfoLabel
+{
+//    NSString *lineBreak = @"\n";
+    NSString *labelText = [NSString stringWithFormat:@" %@\n price: $ %.01f",[self.dish dishName],[self.dish dishPrice]];
+    
+    [self.dishInfoLabel setNumberOfLines:0];
+//    [self.dishInfoLabel ]
+    [self.dishInfoLabel setText:labelText];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

@@ -118,7 +118,7 @@
     if(nodeCount > 0){
         Dish *tmpDish = [[self dishes] objectAtIndex:indexPath.row];
         cell.textLabel.text = [tmpDish dishName];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"price: %f",[tmpDish dishPrice]];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"price: $ %.01f",[tmpDish dishPrice]];
         
         if(!tmpDish.dishIcon){
             
