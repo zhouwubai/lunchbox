@@ -352,22 +352,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    Dish* dish = [self.dishes objectAtIndex:indexPath.row];
+    if([segue.identifier isEqualToString:@"show dish detail"])
+    {
+        [segue.destinationViewController performSelector:@selector(setDish:) withObject:dish];
+    }
+}
 
 
 

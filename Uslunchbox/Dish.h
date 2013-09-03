@@ -13,6 +13,8 @@
 @property (nonatomic) double dishPrice;
 @property (nonatomic,strong) NSString *dishName;
 @property (nonatomic,strong) UIImage *dishIcon;
+@property (nonatomic,strong) UIImage *dishOriginalImage;
+
 
 + (NSDictionary *)executeDishFetch:(NSString *)query withSiteID:(int)siteID withCategory:(int)cID inDay:(NSString *)dateStr;
 -(NSString *)buildImageUrl;

@@ -17,6 +17,7 @@
 @synthesize dishName = _dishName;
 @synthesize dishPrice = _dishPrice;
 @synthesize dishIcon = _dishIcon;
+@synthesize dishOriginalImage = _dishOriginalImage;
 
 
 

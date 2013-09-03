@@ -201,7 +201,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="3i5-fv-UrV" kind="push" id="e3J-AI-Jgy"/>
+                                    <segue destination="3i5-fv-UrV" kind="push" identifier="show dish detail" id="e3J-AI-Jgy"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="PlaceholderCell" textLabel="Xls-uR-Jak" detailTextLabel="rvU-cP-yoS" style="IBUITableViewCellStyleSubtitle" id="jek-Ap-196">
@@ -241,16 +241,41 @@
             </objects>
             <point key="canvasLocation" x="206" y="-952"/>
         </scene>
-        <!--View Controller - dish-->
+        <!--Detail Dish View Controller - dish-->
         <scene sceneID="F9D-6W-nFg">
             <objects>
-                <viewController id="3i5-fv-UrV" sceneMemberID="viewController">
+                <viewController id="3i5-fv-UrV" customClass="DetailDishViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EBf-db-ZZO">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="phz-Bu-aaA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="RAH-AU-NxD">
+                                        <rect key="frame" x="70" y="11" width="188" height="142"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zn6-uh-rzC">
+                                        <rect key="frame" x="20" y="257" width="280" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="dish" id="Pru-Xb-GdV"/>
+                    <navigationItem key="navigationItem" title="dish" id="Pru-Xb-GdV">
+                        <barButtonItem key="rightBarButtonItem" title="order" id="ojO-4p-cBy"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dishImageView" destination="RAH-AU-NxD" id="fwu-6o-2t8"/>
+                        <outlet property="dishInfoLabel" destination="Zn6-uh-rzC" id="FWk-Bw-BNl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrP-av-AxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -406,7 +431,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1354" y="1391"/>
+            <point key="canvasLocation" x="1148" y="1011"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eYq-SP-PtA">
@@ -437,6 +462,13 @@
     <classes>
         <class className="ChooseDayTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseDayTableViewController.h"/>
+        </class>
+        <class className="DetailDishViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailDishViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dishImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="dishInfoLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="LoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>

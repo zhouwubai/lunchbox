@@ -32,6 +32,7 @@
 		CA57BAD617D5464100C95116 /* DishIconDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CA57BAD517D5464100C95116 /* DishIconDownloader.m */; };
 		CA57BADA17D56F7900C95116 /* 96x96-icon-weather.png in Resources */ = {isa = PBXBuildFile; fileRef = CA57BAD917D56F7900C95116 /* 96x96-icon-weather.png */; };
 		CA57BADC17D5707800C95116 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA57BADB17D5707800C95116 /* icon.png */; };
+		CA57BADF17D577B800C95116 /* DetailDishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA57BADE17D577B800C95116 /* DetailDishViewController.m */; };
 		CA5AE17B17C9A48300C6038F /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5AE17917C9A48300C6038F /* GuideViewController.m */; };
 		CA5AE17C17C9A48300C6038F /* GuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA5AE17A17C9A48300C6038F /* GuideViewController.xib */; };
 		CA8CD24017D2B8C9000C6E79 /* orderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8CD23F17D2B8C9000C6E79 /* orderTableViewController.m */; };
@@ -78,6 +79,8 @@
 		CA57BAD517D5464100C95116 /* DishIconDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishIconDownloader.m; sourceTree = "<group>"; };
 		CA57BAD917D56F7900C95116 /* 96x96-icon-weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "96x96-icon-weather.png"; sourceTree = "<group>"; };
 		CA57BADB17D5707800C95116 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		CA57BADD17D577B800C95116 /* DetailDishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailDishViewController.h; path = Uslunchbox/tabbarVC/DetailDishViewController.h; sourceTree = "<group>"; };
+		CA57BADE17D577B800C95116 /* DetailDishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailDishViewController.m; path = Uslunchbox/tabbarVC/DetailDishViewController.m; sourceTree = "<group>"; };
 		CA5AE17817C9A48300C6038F /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuideViewController.h; path = Uslunchbox/GuideView/GuideViewController.h; sourceTree = "<group>"; };
 		CA5AE17917C9A48300C6038F /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuideViewController.m; path = Uslunchbox/GuideView/GuideViewController.m; sourceTree = "<group>"; };
 		CA5AE17A17C9A48300C6038F /* GuideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GuideViewController.xib; path = Uslunchbox/GuideView/GuideViewController.xib; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				CAA0AEEA17D4308000209AC6 /* ChooseDayTableViewController.m */,
 				CAA0AEEC17D431AA00209AC6 /* menuTableViewController.h */,
 				CAA0AEED17D431AA00209AC6 /* menuTableViewController.m */,
+				CA57BADD17D577B800C95116 /* DetailDishViewController.h */,
+				CA57BADE17D577B800C95116 /* DetailDishViewController.m */,
 			);
 			name = tabbarVC;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				CAA0AEEE17D431AA00209AC6 /* menuTableViewController.m in Sources */,
 				CAA0AEF117D4435500209AC6 /* Dish.m in Sources */,
 				CA57BAD617D5464100C95116 /* DishIconDownloader.m in Sources */,
+				CA57BADF17D577B800C95116 /* DetailDishViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

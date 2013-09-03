@@ -68,6 +68,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     UIImage *image = [[UIImage alloc] initWithData:self.activeDownload];
+    self.dish.dishOriginalImage = image;
     
     if(image.size.width != kDishIconSize || image.size.height != kDishIconSize)
     {
