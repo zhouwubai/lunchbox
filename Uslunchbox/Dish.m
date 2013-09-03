@@ -16,7 +16,20 @@
 @synthesize dishID = _dishID;
 @synthesize dishName = _dishName;
 @synthesize dishPrice = _dishPrice;
+@synthesize dishIcon = _dishIcon;
 
+
+
+#pragma mark - user defined
+-(NSString *)buildImageUrl
+{
+    return [NSString stringWithFormat:@"http://uslunchbox.com/uslunchbox/newresources/images/foodimages/food_%d.jpg",self.dishID];
+}
+
+
+
+
+#pragma mark - class method
 
 + (NSDictionary *)executeDishFetch:(NSString *)query withSiteID:(int)siteID withCategory:(int)cID inDay:(NSString *)dateStr
 {
@@ -31,6 +44,9 @@
     NSLog(@"%@",results);
     return results;
 }
+
+
+
 
 
 @end

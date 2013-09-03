@@ -11,7 +11,9 @@
 @interface Dish : NSObject
 @property (nonatomic) int dishID;
 @property (nonatomic) double dishPrice;
-@property (nonatomic,retain) NSString *dishName;
+@property (nonatomic,strong) NSString *dishName;
+@property (nonatomic,strong) UIImage *dishIcon;
 
 + (NSDictionary *)executeDishFetch:(NSString *)query withSiteID:(int)siteID withCategory:(int)cID inDay:(NSString *)dateStr;
+-(NSString *)buildImageUrl;
 @end

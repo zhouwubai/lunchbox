@@ -8,10 +8,15 @@
 
 #import "menuTableViewController.h"
 #import "Dish.h"
+#import "DishIconDownloader.h"
+
+#define kCustomRowCount     5
 
 @interface menuTableViewController ()
-
+// the set of DishIconDownloader objects for each dish
+@property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 @end
+
 
 @implementation menuTableViewController
 
@@ -50,12 +55,20 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
+    
+    [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
+    
+    [self.imageDownloadsInProgress removeAllObjects];
 }
 
 #pragma mark - Table view data source
@@ -68,22 +81,61 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSUInteger count = [self.dishes count];
+    
     // Return the number of rows in the section.
+    if(count == 0)
+    {
+        return kCustomRowCount;
+    }
     return [[self dishes] count];
 }
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"menu cell";
+    static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
+    
+    //add a placeholder cell while waiting on table data
+    NSUInteger nodeCount = [self.dishes count];
+    
+    if (nodeCount == 0 && indexPath.row == 0){
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PlaceholderCellIdentifier];
+        if(cell == nil){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PlaceholderCellIdentifier];
+        }
+    }
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if(cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    Dish *tmpDish = [[self dishes] objectAtIndex:indexPath.row];
-    cell.textLabel.text = [tmpDish dishName];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"price: %f",[tmpDish dishPrice]];
+    if(nodeCount > 0){
+        Dish *tmpDish = [[self dishes] objectAtIndex:indexPath.row];
+        cell.textLabel.text = [tmpDish dishName];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"price: %f",[tmpDish dishPrice]];
+        
+        if(!tmpDish.dishIcon){
+            
+            if(self.tableView.dragging == NO && self.tableView.decelerating == NO)
+            {
+                [self startIconDownload:tmpDish forIndexPath:indexPath];
+            }
+            
+            //if a download is deferred or in progress, return a placeholder image
+            cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
+        }
+        else
+        {
+            cell.imageView.image = tmpDish.dishIcon;
+        }
+    }
+    
     return cell;
 }
 
@@ -147,6 +199,8 @@
     NSString *dateStr = @"2013-08-29";
 //    [self postRequestDishMenuTo:url withSiteID:1 withCategory:0 inDay:dateStr];
     [Dish executeDishFetch:url withSiteID:1 withCategory:0 inDay:dateStr];
+    
+//    if(!nil) NSLog(@"TRUE");
 }
 
 
@@ -219,19 +273,81 @@
 
 
 
+#pragma mark - Table cell image support
+
+-(void)startIconDownload:(Dish *)dish forIndexPath:(NSIndexPath *)indexPath
+{
+    DishIconDownloader *dishIconDownloader = [self.imageDownloadsInProgress objectForKey:indexPath];
+    if (dishIconDownloader == nil) {
+        dishIconDownloader = [[DishIconDownloader alloc] init];
+        dishIconDownloader.dish = dish;
+        [dishIconDownloader setCompletionHandler:^{
+            
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            
+            //Display the newly loaded image
+            cell.imageView.image = dish.dishIcon;
+            
+            //Remove the iconDownloader from the in progress list
+            [self.imageDownloadsInProgress removeObjectForKey:indexPath];
+            
+        }];
+        
+        [self.imageDownloadsInProgress setObject:dishIconDownloader forKey:indexPath];
+        [dishIconDownloader startDownload];
+    }
+}
 
 
 
 
+// -------------------------------------------------------------------------------
+//	loadImagesForOnscreenRows
+//  This method is used in case the user scrolled into a set of cells that don't
+//  have their app icons yet.
+// -------------------------------------------------------------------------------
+
+-(void)loadImagesForOnscreenRows
+{
+    if([self.dishes count] > 0)
+    {
+        NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
+        for(NSIndexPath *indexPath in visiblePaths)
+        {
+            Dish *dish = [self.dishes objectAtIndex:indexPath.row];
+            
+            if(!dish.dishIcon) //Avoid the app icon download if the app already has an icon
+            {
+                [self startIconDownload:dish forIndexPath:indexPath];
+            }
+        }
+    }
+}
 
 
 
 
+#pragma mark - UIScrollViewDelegate
 
+// -------------------------------------------------------------------------------
+//	scrollViewDidEndDragging:willDecelerate:
+//  Load images for all onscreen rows when scrolling is finished.
+// -------------------------------------------------------------------------------
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+	{
+        [self loadImagesForOnscreenRows];
+    }
+}
 
-
-
-
+// -------------------------------------------------------------------------------
+//	scrollViewDidEndDecelerating:
+// -------------------------------------------------------------------------------
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForOnscreenRows];
+}
 
 
 
