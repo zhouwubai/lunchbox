@@ -44,7 +44,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="du1-UL-09q" kind="push" id="PHW-0A-mVL"/>
+                                    <segue destination="du1-UL-09q" kind="push" identifier="Push to tabbar" id="PHW-0A-mVL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="n4h-4F-2Vn">

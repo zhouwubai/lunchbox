@@ -184,7 +184,7 @@
 
 - (IBAction)backToChooseSite:(UIBarButtonItem *)sender {
     
-//    [[self navigationController] ]
+    [[[self navigationController] navigationController] popViewControllerAnimated:YES];
     
 }
 
