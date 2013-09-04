@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UslunchboxUser.h"
 
 @interface MainLunchTabBarController : UITabBarController <UINavigationControllerDelegate>
+
+
+@property (nonatomic) int siteID;
+
+@property (nonatomic,strong) UslunchboxUser *user;
+
 
 @end

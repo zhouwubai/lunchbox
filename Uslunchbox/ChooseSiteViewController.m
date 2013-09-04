@@ -1,24 +1,19 @@
 //
-//  MainLunchTabBarController.m
+//  ChooseSiteViewController.m
 //  Uslunchbox
 //
-//  Created by Wubai Zhou on 9/3/13.
+//  Created by Wubai Zhou on 9/4/13.
 //  Copyright (c) 2013 wubai zhou. All rights reserved.
 //
 
+#import "ChooseSiteViewController.h"
 #import "MainLunchTabBarController.h"
 
-@interface MainLunchTabBarController ()
+@interface ChooseSiteViewController ()
 
 @end
 
-@implementation MainLunchTabBarController
-
-
-@synthesize siteID = _siteID;
-@synthesize user = _user;
-
-
+@implementation ChooseSiteViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,6 +34,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"FIU MMC"])
+    {
+        [(MainLunchTabBarController *)[segue destinationViewController] setSiteID:1];
+    }
 }
 
 @end

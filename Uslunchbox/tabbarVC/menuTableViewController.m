@@ -20,7 +20,6 @@
 
 @implementation menuTableViewController
 
-
 @synthesize date = _date;
 @synthesize dateStr = _dateStr;
 @synthesize dishes = _dishes;
@@ -49,7 +48,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self test];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -192,29 +190,13 @@
 }
 
 
--(void)test
-{
-//    NSURL *url = [NSURL URLWithString:@"http://uslunchbox.com/uslunchbox/OnlineOrderScheduleServlet"];
-    NSString *url = @"http://uslunchbox.com/uslunchbox/OnlineOrderScheduleServlet";
-    NSString *dateStr = @"2013-08-29";
-//    [self postRequestDishMenuTo:url withSiteID:1 withCategory:0 inDay:dateStr];
-    [Dish executeDishFetch:url withSiteID:1 withCategory:0 inDay:dateStr];
-    
-//    if(!nil) NSLog(@"TRUE");
-}
-
-
-
 -(NSMutableArray *) fetchDishes
 {
-    NSString *url = @"http://uslunchbox.com/uslunchbox/OnlineOrderScheduleServlet";
-    NSString *dateStr = @"2013-08-29";
     
-    NSArray *dishes = [[Dish executeDishFetch:url withSiteID:1 withCategory:0 inDay:dateStr] objectForKey:@"dishes"];
+    NSArray *dishes = [[Dish executeDishFetch:[Dish returnDishOnlineOrderScheduleUrl] withSiteID:1 withCategory:0 inDay:[self dateStr]] objectForKey:@"dishes"];
     NSMutableArray *rtnDishes = [NSMutableArray array];
     for(NSDictionary *dish in dishes){
         Dish *tmpDish = [[Dish alloc] init];
-        NSLog(@"%@",tmpDish);
         int dishID = [[dish objectForKey:@"id"] integerValue];
         [tmpDish setDishID:dishID];
         double price = [[dish objectForKey:@"price"] doubleValue];
@@ -225,49 +207,6 @@
     }
     
     return rtnDishes;
-}
-
-
-
--(NSMutableArray *) postRequestDishMenuTo:(NSURL *)url withSiteID:(int)siteID withCategory:(int)cID inDay:(NSString *)dateStr
-{
-
-//    NSString *post = [[NSString alloc] initWithFormat:@"siteid=%d&date=%@&categoryid=%d",siteID,dateStr,cID];
-    NSString *post = @"siteid=1&date=2013-08-29&categoryid=0";
-    NSLog(@"%@",post);
-    
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:url];
-    [request setHTTPMethod:@"get"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:postData];
-
-    NSError *error = [[NSError alloc] init];
-    NSHTTPURLResponse *response = nil;
-    
-    NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSLog(@"Response code: %d",[response statusCode]);
-    
-    if ([response statusCode] >= 200 && [response statusCode] < 300) {
-        NSLog(@"success");
-        
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:urlData options:kNilOptions error:&error];
-        
-        NSLog(@"%@",json);
-        NSLog(@"%@",urlData);
-        return nil;
-        
-    }else{
-        if(error) NSLog(@"Error: %@",error);
-        return nil;
-    }
-    
-    
 }
 
 

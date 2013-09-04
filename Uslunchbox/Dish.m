@@ -42,11 +42,15 @@
     NSDictionary *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
     if (error) NSLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
     // NSLog(@"[%@ %@] received %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), results);
-    NSLog(@"%@",results);
+//    NSLog(@"%@",results);
     return results;
 }
 
 
++(NSString *)returnDishOnlineOrderScheduleUrl
+{
+    return @"http://uslunchbox.com/uslunchbox/OnlineOrderScheduleServlet";
+}
 
 
 

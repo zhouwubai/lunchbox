@@ -17,5 +17,10 @@
 
 
 + (NSDictionary *)executeDishFetch:(NSString *)query withSiteID:(int)siteID withCategory:(int)cID inDay:(NSString *)dateStr;
+
+
++(NSString *)returnDishOnlineOrderScheduleUrl;
+
+
 -(NSString *)buildImageUrl;
 @end

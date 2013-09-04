@@ -7,7 +7,8 @@
 //
 
 #import "ChooseDayTableViewController.h"
-#import "WeekDate.h"
+#import "menuTableViewController.h"
+#import "NSDate+format.h"
 
 @interface ChooseDayTableViewController ()
 
@@ -154,8 +155,8 @@
 {
     NSDate *today = [NSDate date];
     NSLog(@"Today date is %@",today);
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+//    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+//    [dateFormat setDateFormat:@"yyyy-MM-dd"];
     
     //begining day of week which includes today
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -189,6 +190,19 @@
 }
 
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    NSDate *weekDate = [self.weekDates objectAtIndex:indexPath.row];
+    
+    
+    if ([segue.destinationViewController isMemberOfClass:[menuTableViewController class]]) {
+        NSLog(@"TRUE");
+    }
+    
+    [segue.destinationViewController performSelector:@selector(setDate:) withObject:weekDate];
+    [segue.destinationViewController performSelector:@selector(setDateStr:) withObject:[[weekDate class] formatWeekDate:weekDate ToFormat:@"yyyy-MM-dd"]];
+}
 
 
 
