@@ -40,6 +40,7 @@
 		CA8CD24717D2EF52000C6E79 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8CD24617D2EF52000C6E79 /* profile.png */; };
 		CA8CD24917D2EF7E000C6E79 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8CD24817D2EF7E000C6E79 /* menu.png */; };
 		CA8CD24B17D2EFE5000C6E79 /* order.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8CD24A17D2EFE5000C6E79 /* order.png */; };
+		CA9725AE17D6D19C002790EB /* MainLunchTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9725AD17D6D19C002790EB /* MainLunchTabBarController.m */; };
 		CA9AEC9C17D39C2000059E2D /* WeekDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9AEC9B17D39C2000059E2D /* WeekDate.m */; };
 		CAA0AEEB17D4308000209AC6 /* ChooseDayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA0AEEA17D4308000209AC6 /* ChooseDayTableViewController.m */; };
 		CAA0AEEE17D431AA00209AC6 /* menuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA0AEED17D431AA00209AC6 /* menuTableViewController.m */; };
@@ -91,6 +92,8 @@
 		CA8CD24617D2EF52000C6E79 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		CA8CD24817D2EF7E000C6E79 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		CA8CD24A17D2EFE5000C6E79 /* order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = order.png; sourceTree = "<group>"; };
+		CA9725AC17D6D19C002790EB /* MainLunchTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainLunchTabBarController.h; path = Uslunchbox/tabbarVC/MainLunchTabBarController.h; sourceTree = "<group>"; };
+		CA9725AD17D6D19C002790EB /* MainLunchTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainLunchTabBarController.m; path = Uslunchbox/tabbarVC/MainLunchTabBarController.m; sourceTree = "<group>"; };
 		CA9AEC9A17D39C2000059E2D /* WeekDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekDate.h; path = Uslunchbox/tabbarVC/WeekDate.h; sourceTree = "<group>"; };
 		CA9AEC9B17D39C2000059E2D /* WeekDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekDate.m; path = Uslunchbox/tabbarVC/WeekDate.m; sourceTree = "<group>"; };
 		CAA0AEE917D4308000209AC6 /* ChooseDayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseDayTableViewController.h; path = Uslunchbox/tabbarVC/ChooseDayTableViewController.h; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 				CAA0AEED17D431AA00209AC6 /* menuTableViewController.m */,
 				CA57BADD17D577B800C95116 /* DetailDishViewController.h */,
 				CA57BADE17D577B800C95116 /* DetailDishViewController.m */,
+				CA9725AC17D6D19C002790EB /* MainLunchTabBarController.h */,
+				CA9725AD17D6D19C002790EB /* MainLunchTabBarController.m */,
 			);
 			name = tabbarVC;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				CAA0AEF117D4435500209AC6 /* Dish.m in Sources */,
 				CA57BAD617D5464100C95116 /* DishIconDownloader.m in Sources */,
 				CA57BADF17D577B800C95116 /* DetailDishViewController.m in Sources */,
+				CA9725AE17D6D19C002790EB /* MainLunchTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

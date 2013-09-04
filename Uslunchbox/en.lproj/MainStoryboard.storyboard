@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="-1289" y="-377"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Lunch Tab Bar Controller-->
         <scene sceneID="xGk-SI-PY6">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="du1-UL-09q" sceneMemberID="viewController">
+                <tabBarController definesPresentationContext="YES" id="du1-UL-09q" customClass="MainLunchTabBarController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="QZ1-hN-AfQ"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -509,6 +509,9 @@
                 <relationship kind="outlet" name="loginView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="passwdLabel" candidateClass="UITextField"/>
             </relationships>
+        </class>
+        <class className="MainLunchTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainLunchTabBarController.h"/>
         </class>
         <class className="menuTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/menuTableViewController.h"/>
