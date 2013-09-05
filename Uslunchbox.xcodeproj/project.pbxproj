@@ -41,7 +41,9 @@
 		CA8CD24917D2EF7E000C6E79 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8CD24817D2EF7E000C6E79 /* menu.png */; };
 		CA8CD24B17D2EFE5000C6E79 /* order.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8CD24A17D2EFE5000C6E79 /* order.png */; };
 		CA9725AE17D6D19C002790EB /* MainLunchTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9725AD17D6D19C002790EB /* MainLunchTabBarController.m */; };
-		CA9AEC9C17D39C2000059E2D /* WeekDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9AEC9B17D39C2000059E2D /* WeekDate.m */; };
+		CA9725B717D6EB05002790EB /* ChooseSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9725B617D6EB05002790EB /* ChooseSiteViewController.m */; };
+		CA9725BB17D6ECB3002790EB /* UslunchboxUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9725BA17D6ECB3002790EB /* UslunchboxUser.m */; };
+		CA9725BE17D6FC20002790EB /* NSDate+format.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9725BD17D6FC20002790EB /* NSDate+format.m */; };
 		CAA0AEEB17D4308000209AC6 /* ChooseDayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA0AEEA17D4308000209AC6 /* ChooseDayTableViewController.m */; };
 		CAA0AEEE17D431AA00209AC6 /* menuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA0AEED17D431AA00209AC6 /* menuTableViewController.m */; };
 		CAA0AEF117D4435500209AC6 /* Dish.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA0AEF017D4435500209AC6 /* Dish.m */; };
@@ -94,8 +96,12 @@
 		CA8CD24A17D2EFE5000C6E79 /* order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = order.png; sourceTree = "<group>"; };
 		CA9725AC17D6D19C002790EB /* MainLunchTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainLunchTabBarController.h; path = Uslunchbox/tabbarVC/MainLunchTabBarController.h; sourceTree = "<group>"; };
 		CA9725AD17D6D19C002790EB /* MainLunchTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainLunchTabBarController.m; path = Uslunchbox/tabbarVC/MainLunchTabBarController.m; sourceTree = "<group>"; };
-		CA9AEC9A17D39C2000059E2D /* WeekDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekDate.h; path = Uslunchbox/tabbarVC/WeekDate.h; sourceTree = "<group>"; };
-		CA9AEC9B17D39C2000059E2D /* WeekDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekDate.m; path = Uslunchbox/tabbarVC/WeekDate.m; sourceTree = "<group>"; };
+		CA9725B517D6EB05002790EB /* ChooseSiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseSiteViewController.h; path = Uslunchbox/ChooseSiteViewController.h; sourceTree = "<group>"; };
+		CA9725B617D6EB05002790EB /* ChooseSiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseSiteViewController.m; path = Uslunchbox/ChooseSiteViewController.m; sourceTree = "<group>"; };
+		CA9725B917D6ECB3002790EB /* UslunchboxUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UslunchboxUser.h; path = Uslunchbox/user/UslunchboxUser.h; sourceTree = "<group>"; };
+		CA9725BA17D6ECB3002790EB /* UslunchboxUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UslunchboxUser.m; path = Uslunchbox/user/UslunchboxUser.m; sourceTree = "<group>"; };
+		CA9725BC17D6FC20002790EB /* NSDate+format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+format.h"; path = "user/NSDate+format.h"; sourceTree = "<group>"; };
+		CA9725BD17D6FC20002790EB /* NSDate+format.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+format.m"; path = "user/NSDate+format.m"; sourceTree = "<group>"; };
 		CAA0AEE917D4308000209AC6 /* ChooseDayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseDayTableViewController.h; path = Uslunchbox/tabbarVC/ChooseDayTableViewController.h; sourceTree = "<group>"; };
 		CAA0AEEA17D4308000209AC6 /* ChooseDayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseDayTableViewController.m; path = Uslunchbox/tabbarVC/ChooseDayTableViewController.m; sourceTree = "<group>"; };
 		CAA0AEEC17D431AA00209AC6 /* menuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = menuTableViewController.h; path = Uslunchbox/tabbarVC/menuTableViewController.h; sourceTree = "<group>"; };
@@ -121,6 +127,7 @@
 		0D07B0471786382200F575AF = {
 			isa = PBXGroup;
 			children = (
+				CA9725B817D6EC6F002790EB /* user */,
 				CA8CD24517D2EC28000C6E79 /* img */,
 				CA8CD23A17D2B833000C6E79 /* tabbarVC */,
 				CA5AE17717C9A37F00C6038F /* GuideView */,
@@ -163,6 +170,8 @@
 				CAA0AEF017D4435500209AC6 /* Dish.m */,
 				CA57BAD417D5464100C95116 /* DishIconDownloader.h */,
 				CA57BAD517D5464100C95116 /* DishIconDownloader.m */,
+				CA9725BC17D6FC20002790EB /* NSDate+format.h */,
+				CA9725BD17D6FC20002790EB /* NSDate+format.m */,
 			);
 			path = Uslunchbox;
 			sourceTree = "<group>";
@@ -222,8 +231,6 @@
 				CA8CD23F17D2B8C9000C6E79 /* orderTableViewController.m */,
 				CA8CD24117D2B8F4000C6E79 /* profileViewController.h */,
 				CA8CD24217D2B8F4000C6E79 /* profileViewController.m */,
-				CA9AEC9A17D39C2000059E2D /* WeekDate.h */,
-				CA9AEC9B17D39C2000059E2D /* WeekDate.m */,
 				CAA0AEE917D4308000209AC6 /* ChooseDayTableViewController.h */,
 				CAA0AEEA17D4308000209AC6 /* ChooseDayTableViewController.m */,
 				CAA0AEEC17D431AA00209AC6 /* menuTableViewController.h */,
@@ -232,6 +239,8 @@
 				CA57BADE17D577B800C95116 /* DetailDishViewController.m */,
 				CA9725AC17D6D19C002790EB /* MainLunchTabBarController.h */,
 				CA9725AD17D6D19C002790EB /* MainLunchTabBarController.m */,
+				CA9725B517D6EB05002790EB /* ChooseSiteViewController.h */,
+				CA9725B617D6EB05002790EB /* ChooseSiteViewController.m */,
 			);
 			name = tabbarVC;
 			sourceTree = "<group>";
@@ -248,6 +257,15 @@
 				CA8CD24617D2EF52000C6E79 /* profile.png */,
 			);
 			name = img;
+			sourceTree = "<group>";
+		};
+		CA9725B817D6EC6F002790EB /* user */ = {
+			isa = PBXGroup;
+			children = (
+				CA9725B917D6ECB3002790EB /* UslunchboxUser.h */,
+				CA9725BA17D6ECB3002790EB /* UslunchboxUser.m */,
+			);
+			name = user;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,13 +357,15 @@
 				CA5AE17B17C9A48300C6038F /* GuideViewController.m in Sources */,
 				CA8CD24017D2B8C9000C6E79 /* orderTableViewController.m in Sources */,
 				CA8CD24317D2B8F4000C6E79 /* profileViewController.m in Sources */,
-				CA9AEC9C17D39C2000059E2D /* WeekDate.m in Sources */,
 				CAA0AEEB17D4308000209AC6 /* ChooseDayTableViewController.m in Sources */,
 				CAA0AEEE17D431AA00209AC6 /* menuTableViewController.m in Sources */,
 				CAA0AEF117D4435500209AC6 /* Dish.m in Sources */,
 				CA57BAD617D5464100C95116 /* DishIconDownloader.m in Sources */,
 				CA57BADF17D577B800C95116 /* DetailDishViewController.m in Sources */,
 				CA9725AE17D6D19C002790EB /* MainLunchTabBarController.m in Sources */,
+				CA9725B717D6EB05002790EB /* ChooseSiteViewController.m in Sources */,
+				CA9725BB17D6ECB3002790EB /* UslunchboxUser.m in Sources */,
+				CA9725BE17D6FC20002790EB /* NSDate+format.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
