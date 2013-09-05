@@ -79,13 +79,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSUInteger count = [self.dishes count];
+//    NSUInteger count = [self.dishes count];
     
     // Return the number of rows in the section.
-    if(count == 0)
-    {
-        return kCustomRowCount;
-    }
+//    if(count == 0)
+//    {
+//        return kCustomRowCount;
+//    }
     return [[self dishes] count];
 }
 
