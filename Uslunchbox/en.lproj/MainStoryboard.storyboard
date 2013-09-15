@@ -278,7 +278,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="dish" id="Pru-Xb-GdV">
-                        <barButtonItem key="rightBarButtonItem" title="order" id="ojO-4p-cBy"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add To Cart" id="ojO-4p-cBy">
+                            <connections>
+                                <action selector="addOrderToCart:" destination="3i5-fv-UrV" id="0V4-0N-4CL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dishImageView" destination="RAH-AU-NxD" id="fwu-6o-2t8"/>

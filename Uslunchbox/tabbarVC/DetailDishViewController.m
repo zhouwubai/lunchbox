@@ -7,6 +7,7 @@
 //
 
 #import "DetailDishViewController.h"
+#import "MainLunchTabBarController.h"
 
 #define DISH_IMAGE_WIDTH      188
 #define DISH_IMAGE_HEIGHT     142
@@ -14,7 +15,6 @@
 @interface DetailDishViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *dishImageView;
-
 @property (weak, nonatomic) IBOutlet UILabel *dishInfoLabel;
 
 @end
@@ -24,6 +24,7 @@
 @synthesize dish = _dish;
 @synthesize dishImageView = _dishImageView;
 @synthesize dishInfoLabel = _dishInfoLabel;
+@synthesize dishOrderDatabase = _dishOrderDatabase;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -48,6 +49,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.dishOrderDatabase = [(MainLunchTabBarController *)self.tabBarController dishOrderDatabase];
+    NSLog(@"dishOrderDatabase equal? %d",self.dishOrderDatabase == [(MainLunchTabBarController *)self.tabBarController dishOrderDatabase]);
 }
 
 
@@ -86,6 +94,58 @@
 //    [self.dishInfoLabel ]
     [self.dishInfoLabel setText:labelText];
 }
+
+
+- (IBAction)addOrderToCart:(UIBarButtonItem *)sender
+{
+    
+    // step one: check whether it exists in database
+    // step two: if exist, update it, if not, insert one
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"DishOrder"];
+    request.predicate = [NSPredicate predicateWithFormat:@"dishID = %d", [self.dish dishID]];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"dishID" ascending:YES];
+    request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    NSManagedObjectContext *context = self.dishOrderDatabase.managedObjectContext;
+    NSError *error = nil;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    
+    
+    if ([matches count] > 0) {
+        
+        
+    }else if([matches count] == 0){
+    
+        DishOrder *order = [NSEntityDescription insertNewObjectForEntityForName:@"DishOrder" inManagedObjectContext:context];
+        
+        order.quantity = [NSNumber numberWithInt:1];
+        order.dishID = [NSNumber numberWithInt:self.dish.dishID];
+        order.dishName = self.dish.dishName;
+        order.dishPrice = [NSNumber numberWithFloat:self.dish.dishPrice];
+        order.dishDate = [NSDate date];
+        
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
