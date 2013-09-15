@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataTableViewController.h"
 
-@interface orderTableViewController : UITableViewController
+@interface orderTableViewController : CoreDataTableViewController
+
+@property (nonatomic,strong) UIManagedDocument *dishOrderDatabase;
 
 @end

@@ -27,6 +27,7 @@
 		0D07B0B9178642FD00F575AF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07B0B8178642FD00F575AF /* LoginViewController.m */; };
 		0D07B0BE1793534E00F575AF /* SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07B0BD1793534E00F575AF /* SHA1.m */; };
 		0D07B0C01793728B00F575AF /* readme in Resources */ = {isa = PBXBuildFile; fileRef = 0D07B0BF1793728A00F575AF /* readme */; };
+		CA57501217E5592E002E5181 /* DishOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = CA57501117E5592E002E5181 /* DishOrder.m */; };
 		CA57BAD217D51FF900C95116 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = CA57BAD017D51FF900C95116 /* Placeholder.png */; };
 		CA57BAD317D51FF900C95116 /* Placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA57BAD117D51FF900C95116 /* Placeholder@2x.png */; };
 		CA57BAD617D5464100C95116 /* DishIconDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CA57BAD517D5464100C95116 /* DishIconDownloader.m */; };
@@ -47,6 +48,8 @@
 		CAA0AEEB17D4308000209AC6 /* ChooseDayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA0AEEA17D4308000209AC6 /* ChooseDayTableViewController.m */; };
 		CAA0AEEE17D431AA00209AC6 /* menuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA0AEED17D431AA00209AC6 /* menuTableViewController.m */; };
 		CAA0AEF117D4435500209AC6 /* Dish.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA0AEF017D4435500209AC6 /* Dish.m */; };
+		CAA2C0EA17DD797000A4252C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA2C0E917DD797000A4252C /* CoreData.framework */; };
+		CAA2C0ED17DD7A9500A4252C /* dishOrder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAA2C0EB17DD7A9500A4252C /* dishOrder.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,8 @@
 		0D07B0BC1793534E00F575AF /* SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHA1.h; path = Uslunchbox/SHA1.h; sourceTree = "<group>"; };
 		0D07B0BD1793534E00F575AF /* SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHA1.m; path = Uslunchbox/SHA1.m; sourceTree = "<group>"; };
 		0D07B0BF1793728A00F575AF /* readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
+		CA57501017E5592E002E5181 /* DishOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DishOrder.h; path = Uslunchbox/user/DishOrder.h; sourceTree = "<group>"; };
+		CA57501117E5592E002E5181 /* DishOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DishOrder.m; path = Uslunchbox/user/DishOrder.m; sourceTree = "<group>"; };
 		CA57BAD017D51FF900C95116 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		CA57BAD117D51FF900C95116 /* Placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Placeholder@2x.png"; sourceTree = "<group>"; };
 		CA57BAD417D5464100C95116 /* DishIconDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishIconDownloader.h; sourceTree = "<group>"; };
@@ -108,6 +113,10 @@
 		CAA0AEED17D431AA00209AC6 /* menuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = menuTableViewController.m; path = Uslunchbox/tabbarVC/menuTableViewController.m; sourceTree = "<group>"; };
 		CAA0AEEF17D4435500209AC6 /* Dish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dish.h; sourceTree = "<group>"; };
 		CAA0AEF017D4435500209AC6 /* Dish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dish.m; sourceTree = "<group>"; };
+		CAA2C0E717DD790C00A4252C /* CoreDataTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		CAA2C0E817DD790C00A4252C /* CoreDataTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		CAA2C0E917DD797000A4252C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CAA2C0EC17DD7A9500A4252C /* dishOrder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dishOrder.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAA2C0EA17DD797000A4252C /* CoreData.framework in Frameworks */,
 				0D07B0541786382200F575AF /* UIKit.framework in Frameworks */,
 				0D07B0561786382200F575AF /* Foundation.framework in Frameworks */,
 				0D07B0581786382200F575AF /* CoreGraphics.framework in Frameworks */,
@@ -127,6 +137,8 @@
 		0D07B0471786382200F575AF = {
 			isa = PBXGroup;
 			children = (
+				CAA2C0E917DD797000A4252C /* CoreData.framework */,
+				CAA2C0E617DD78F900A4252C /* Core Data */,
 				CA9725B817D6EC6F002790EB /* user */,
 				CA8CD24517D2EC28000C6E79 /* img */,
 				CA8CD23A17D2B833000C6E79 /* tabbarVC */,
@@ -268,6 +280,18 @@
 			name = user;
 			sourceTree = "<group>";
 		};
+		CAA2C0E617DD78F900A4252C /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				CAA2C0EB17DD7A9500A4252C /* dishOrder.xcdatamodeld */,
+				CA57501017E5592E002E5181 /* DishOrder.h */,
+				CA57501117E5592E002E5181 /* DishOrder.m */,
+				CAA2C0E717DD790C00A4252C /* CoreDataTableViewController.h */,
+				CAA2C0E817DD790C00A4252C /* CoreDataTableViewController.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -366,6 +390,8 @@
 				CA9725B717D6EB05002790EB /* ChooseSiteViewController.m in Sources */,
 				CA9725BB17D6ECB3002790EB /* UslunchboxUser.m in Sources */,
 				CA9725BE17D6FC20002790EB /* NSDate+format.m in Sources */,
+				CAA2C0ED17DD7A9500A4252C /* dishOrder.xcdatamodeld in Sources */,
+				CA57501217E5592E002E5181 /* DishOrder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +519,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CAA2C0EB17DD7A9500A4252C /* dishOrder.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CAA2C0EC17DD7A9500A4252C /* dishOrder.xcdatamodel */,
+			);
+			currentVersion = CAA2C0EC17DD7A9500A4252C /* dishOrder.xcdatamodel */;
+			path = dishOrder.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0D07B0481786382200F575AF /* Project object */;
 }
