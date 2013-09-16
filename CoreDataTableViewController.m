@@ -111,10 +111,12 @@
         {
             case NSFetchedResultsChangeInsert:
                 [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+                NSLog(@"insert");
                 break;
                 
             case NSFetchedResultsChangeDelete:
                 [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+                NSLog(@"delete");
                 break;
         }
     }
@@ -133,6 +135,7 @@
         {
             case NSFetchedResultsChangeInsert:
                 [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                NSLog(@"insert");
                 break;
                 
             case NSFetchedResultsChangeDelete:
@@ -141,6 +144,7 @@
                 
             case NSFetchedResultsChangeUpdate:
                 [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                NSLog(@"update");
                 break;
                 
             case NSFetchedResultsChangeMove:
