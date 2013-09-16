@@ -192,8 +192,8 @@
 
 -(NSMutableArray *) fetchDishes
 {
-    
-    NSArray *dishes = [[Dish executeDishFetch:[Dish returnDishOnlineOrderScheduleUrl] withSiteID:1 withCategory:0 inDay:[self dateStr]] objectForKey:@"dishes"];
+    int siteID = [(MainLunchTabBarController *)self.tabBarController siteID];
+    NSArray *dishes = [[Dish executeDishFetch:[Dish returnDishOnlineOrderScheduleUrl] withSiteID:siteID withCategory:0 inDay:[self dateStr]] objectForKey:@"dishes"];
     NSMutableArray *rtnDishes = [NSMutableArray array];
     for(NSDictionary *dish in dishes){
         Dish *tmpDish = [[Dish alloc] init];

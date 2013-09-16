@@ -317,7 +317,13 @@
                             <outlet property="delegate" destination="Gng-Qr-K2w" id="upv-Lg-ez7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="HaP-EB-6Hu"/>
+                    <navigationItem key="navigationItem" id="HaP-EB-6Hu">
+                        <barButtonItem key="rightBarButtonItem" title="Place Orders" id="IHq-7K-FeU">
+                            <connections>
+                                <action selector="placeOrders:" destination="Gng-Qr-K2w" id="aIW-VM-alr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xiz-26-CvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -510,6 +516,49 @@
         <image name="order.png" width="22" height="26"/>
         <image name="profile.png" width="24" height="21"/>
     </resources>
+    <classes>
+        <class className="ChooseDayTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseDayTableViewController.h"/>
+        </class>
+        <class className="ChooseSiteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseSiteViewController.h"/>
+        </class>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="DetailDishViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailDishViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addOrderToCart:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="dishImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="dishInfoLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loginClicked:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="emailLabel" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="loginView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="passwdLabel" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MainLunchTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainLunchTabBarController.h"/>
+        </class>
+        <class className="menuTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/menuTableViewController.h"/>
+        </class>
+        <class className="orderTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/orderTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="placeOrders:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="profileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/profileViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

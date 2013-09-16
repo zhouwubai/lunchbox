@@ -20,6 +20,13 @@
 @synthesize dishOriginalImage = _dishOriginalImage;
 
 
+@synthesize stapleFoodID = _stapleFoodID;
+@synthesize stapleFoodName = _stapleFoodName;
+@synthesize sideDishID = _sideDishID;
+@synthesize sideDishName = _sideDishName;
+@synthesize deliverTime = _deliverTime;
+@synthesize deliverLocation = _deliverLocation;
+
 
 #pragma mark - user defined
 -(NSString *)buildImageUrl
@@ -42,7 +49,7 @@
     NSDictionary *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
     if (error) NSLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
     // NSLog(@"[%@ %@] received %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), results);
-//    NSLog(@"%@",results);
+    NSLog(@"%@",results);
     return results;
 }
 

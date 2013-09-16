@@ -12,6 +12,9 @@
 
 @interface orderTableViewController ()
 
+
+- (IBAction)placeOrders:(UIBarButtonItem *)sender;
+
 @end
 
 @implementation orderTableViewController
@@ -97,7 +100,8 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.title = @"Shopping Cart";
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -180,6 +184,18 @@
  
 }
 */
+
+
+- (IBAction)placeOrders:(UIBarButtonItem *)sender {
+    
+    NSLog(@"placeOrder");
+    
+}
+
+
+
+
+
 
 
 @end
